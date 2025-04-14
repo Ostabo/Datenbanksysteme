@@ -46,6 +46,14 @@ db.vorlesung.aggregate([
 db.vorlesung.aggregate(
     [
         {
+            $match:
+                {
+                    "studiengang.$id": db.studiengaenge.findOne({
+                        "id": "AIN"
+                    })._id
+                }
+        },
+        {
             $group: {
                 "_id": "$dozent",
                 //"anzahl" : {"$sum" : 1},
