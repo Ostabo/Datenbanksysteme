@@ -17,8 +17,7 @@ MATCH (a:Person)-[:ACTED_IN|DIRECTED|WROTE|PRODUCED]->(:Movie)<-[:ACTED_IN|DIREC
   WHERE a <> d
 WITH DISTINCT a, d
 MERGE (a)-[k1:KNOWS]->(d)
-MERGE (a)<-[k2:KNOWS]-(d)
-RETURN count(k1) + count(k2) AS Eingefuegt
+RETURN count(k1) AS Eingefuegt
 
 // c
 // Geben Sie Empfehlungen für mögliche Filmpartner von Keanu Reeves an. Diese sollen
